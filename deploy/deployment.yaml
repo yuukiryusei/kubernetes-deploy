@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kubernetes-cicd
+  name: nginx-deployment
   labels:
-    app: kubernetes-cicd
+    app: nginx
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: kubernetes-cicd
+      app: nginx
   template:
     metadata:
       labels:
-        app: kubernetes-cicd
+        app: nginx
     spec:
       containers:
-      - name: kubernetes-cicd
-        image: yuukiryusei/kubernetes-cicd:20250623
-        ports:
-        - containerPort: 80
+        - name: nginx
+          image: dummy/dummy:latest
+          ports:
+            - containerPort: 80
 
